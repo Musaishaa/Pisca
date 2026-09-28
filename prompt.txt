@@ -1,0 +1,570 @@
+Buatkan saya sebuah aplikasi web bernama PISCA (Personal Intelligent Study & Chat Assistant).
+
+TUJUAN UTAMA
+
+PISCA adalah chatbot AI generatif lokal/offline yang:
+
+dapat menjawab pertanyaan pengguna,
+dapat mengingat informasi yang diberikan pengguna,
+dapat menggunakan memory tersebut pada percakapan berikutnya,
+tidak menggunakan API cloud seperti OpenAI/Gemini,
+pada tahap awal berjalan di laptop melalui web browser,
+arsitekturnya harus disiapkan agar model AI yang sama nantinya dapat dioptimalkan dan dipindahkan ke aplikasi Android.
+
+Saya hanya membutuhkan MVP yang benar-benar bisa berjalan, jangan membuat fitur berlebihan.
+
+1. TEKNOLOGI
+
+Gunakan:
+
+Frontend
+HTML
+CSS
+JavaScript vanilla
+UI modern, minimal, responsive
+fokus tampilan seperti aplikasi chat
+Backend
+Python
+FastAPI
+Database
+SQLite
+Local AI
+
+Gunakan arsitektur Local LLM Adapter agar model AI dapat diganti tanpa mengubah seluruh aplikasi.
+
+Untuk development awal, gunakan Ollama/local LLM sebagai runtime model lokal.
+
+Jangan gunakan API berbayar atau layanan AI cloud.
+
+Buat konfigurasi model melalui .env, misalnya:
+
+LLM_PROVIDER=ollama
+LLM_MODEL=<LOCAL_MODEL_NAME>
+LLM_BASE_URL=http://localhost:11434
+
+Jangan hard-code nama model di banyak file.
+
+2. STRUKTUR PROYEK
+
+Buat struktur yang rapi seperti:
+
+PISCA/
+│
+├── backend/
+│   ├── main.py
+│   ├── config.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   │
+│   ├── services/
+│   │   ├── llm_service.py
+│   │   ├── memory_service.py
+│   │   ├── chat_service.py
+│   │   └── dataset_service.py
+│   │
+│   ├── routes/
+│   │   ├── chat.py
+│   │   ├── memory.py
+│   │   └── health.py
+│   │
+│   └── prompts/
+│       └── system_prompt.txt
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
+├── data/
+│   ├── pisca_dataset.jsonl
+│   └── pisca.db
+│
+├── scripts/
+│   ├── seed_database.py
+│   └── validate_dataset.py
+│
+├── tests/
+│
+├── .env.example
+├── requirements.txt
+└── README.md
+3. CHATBOT
+
+Buat interface chat:
+
+PISCA
+Personal Intelligent Study & Chat Assistant
+
+------------------------------------------------
+
+PISCA:
+Halo, saya PISCA. Ada yang bisa saya bantu?
+
+USER:
+Apa itu database?
+
+PISCA:
+Database adalah ...
+
+------------------------------------------------
+[ Ketik pesan...                         ] [➤]
+
+Fitur:
+
+kirim pesan
+menerima jawaban AI
+loading indicator
+timestamp
+auto-scroll
+tombol clear conversation
+responsive untuk desktop dan mobile browser
+4. MEMORY SYSTEM
+
+Ini fitur penting.
+
+PISCA harus memiliki memory, tetapi jangan melatih ulang model setiap kali pengguna memberikan informasi.
+
+Gunakan konsep:
+
+LLM + Memory Database
+
+Contoh:
+
+User:
+
+Nama saya Pisca.
+
+PISCA:
+
+Baik, saya akan mengingat bahwa nama Anda Pisca.
+
+Simpan ke database:
+
+category: personal
+key: name
+value: Pisca
+
+Contoh lain:
+
+User:
+
+Saya mahasiswa Sistem Informasi.
+
+Simpan:
+
+category: education
+key: major
+value: Sistem Informasi
+
+Kemudian user bertanya:
+
+Siapa nama saya?
+
+Sistem mengambil memory:
+
+name = Pisca
+major = Sistem Informasi
+
+Lalu informasi tersebut dimasukkan ke context LLM agar model dapat menghasilkan jawaban.
+
+5. MEMORY HARUS MENDUKUNG
+
+Buat fitur:
+
+Save memory
+
+Pengguna bisa mengatakan:
+
+Ingat bahwa nama saya Pisca.
+
+atau:
+
+Ingat bahwa saya mahasiswa Sistem Informasi.
+
+Recall memory
+
+Apa yang kamu ingat tentang saya?
+
+Forget memory
+
+Lupakan bahwa saya mahasiswa Sistem Informasi.
+
+Memory management UI
+
+Tambahkan halaman/panel:
+
+Memory
+
+Nama
+Pisca
+
+Status
+Mahasiswa
+
+Jurusan
+Sistem Informasi
+
+Setiap memory dapat:
+
+dilihat
+diedit
+dihapus
+6. JANGAN SIMPAN SEMUA CHAT SEBAGAI MEMORY
+
+Pisahkan:
+
+Chat History
+
+Semua percakapan.
+
+Memory
+
+Informasi jangka panjang yang memang berguna untuk percakapan berikutnya.
+
+Buat mekanisme sederhana agar LLM atau logic aplikasi menentukan apakah pesan layak menjadi memory.
+
+Untuk MVP, prioritaskan perintah eksplisit seperti:
+
+"ingat bahwa..."
+
+dan jangan membuat automatic memory extraction yang terlalu kompleks.
+
+7. DATABASE
+
+Buat tabel minimal:
+
+conversations
+id
+created_at
+updated_at
+messages
+id
+conversation_id
+role
+content
+created_at
+memories
+id
+category
+key
+value
+source
+created_at
+updated_at
+
+Gunakan SQLite.
+
+Pastikan semua query aman dan gunakan ORM atau parameterized queries.
+
+8. DATASET
+
+Buat dataset awal sebanyak 100 pertanyaan dan jawaban.
+
+Format:
+
+{"instruction":"Apa itu database?","response":"Database adalah ..."}
+
+atau jika membutuhkan kategori:
+
+{"category":"database","instruction":"Apa itu database?","response":"Database adalah ..."}
+
+Dataset disimpan di:
+
+data/pisca_dataset.jsonl
+Kategori awal
+
+Buat sekitar 10 kategori dengan ±10 pertanyaan masing-masing:
+
+Sistem Informasi
+Database
+PHP
+MySQL
+HTML
+CSS
+JavaScript
+API
+Jaringan Komputer
+Cybersecurity
+
+Buat 100 data yang benar-benar berbeda, bukan hanya mengganti beberapa kata.
+
+Dataset harus mudah diedit secara manual agar saya nantinya bisa menambah menjadi:
+
+200
+500
+1.000
+dan seterusnya.
+
+Buat juga script:
+
+scripts/validate_dataset.py
+
+untuk memeriksa:
+
+JSONL valid
+field wajib tersedia
+tidak ada data kosong
+menghitung jumlah dataset
+mendeteksi duplicate question sederhana
+9. AI GENERATIF
+
+PISCA harus menggunakan LLM lokal untuk menghasilkan jawaban.
+
+Alurnya:
+
+User Question
+      ↓
+Chat Service
+      ↓
+Ambil relevant memory
+      ↓
+Bangun context
+      ↓
+Local LLM
+      ↓
+Generated Response
+      ↓
+User
+
+Contoh prompt ke model:
+
+SYSTEM:
+You are PISCA, a local personal AI assistant.
+
+USER MEMORY:
+Name: Pisca
+Occupation: Student
+Major: Information Systems
+
+USER QUESTION:
+Siapa saya?
+
+Respond naturally using the available memory.
+Do not invent personal information that is not present in memory.
+
+Model harus menghasilkan jawaban berdasarkan context yang diberikan.
+
+10. ATURAN MEMORY DAN HALUSINASI
+
+PISCA tidak boleh mengarang informasi pribadi.
+
+Jika user bertanya:
+
+Berapa umur saya?
+
+dan memory tidak memilikinya, jawab:
+
+Saya belum mengetahui umur Anda karena informasi tersebut belum pernah diberikan.
+
+Jangan menebak.
+
+Jika user memberikan informasi subjektif seperti:
+
+Pisca adalah mahasiswa tercantik.
+
+Boleh disimpan sebagai:
+
+category: user_statement
+key: statement
+value: Pisca adalah mahasiswa tercantik.
+source: user
+
+Kemudian PISCA harus menjelaskan bahwa itu adalah informasi yang diberikan pengguna, bukan fakta yang diverifikasi.
+
+11. LOCAL/OFFLINE
+
+PISCA harus dapat berjalan tanpa internet setelah:
+
+dependency terinstall,
+local LLM tersedia,
+model sudah di-download.
+
+Jangan membuat request ke:
+
+OpenAI
+Gemini
+Anthropic
+API AI cloud lainnya
+
+Seluruh inference menggunakan local LLM.
+
+12. KESIAPAN ANDROID
+
+Walaupun sekarang fokus Web, desain aplikasi harus memiliki pemisahan:
+
+UI
+↓
+Backend/API
+↓
+LLM Service
+↓
+Memory Service
+↓
+Database
+
+Jangan mencampur logic AI dengan HTML/JavaScript.
+
+Buat llm_service.py menggunakan interface/abstraction sehingga nanti runtime model dapat diganti untuk Android tanpa mengubah seluruh business logic.
+
+Contoh konsep:
+
+LLMService
+ ├── OllamaLLM
+ └── MobileLLM (future)
+
+Jangan implementasikan MobileLLM sekarang. Siapkan struktur saja.
+
+13. API ENDPOINT
+
+Minimal buat:
+
+GET  /health
+POST /api/chat
+GET  /api/memories
+POST /api/memories
+PUT  /api/memories/{id}
+DELETE /api/memories/{id}
+GET  /api/conversations
+DELETE /api/conversations/{id}
+
+POST /api/chat menerima:
+
+{
+  "message": "Siapa nama saya?"
+}
+
+dan mengembalikan:
+
+{
+  "answer": "Nama Anda Pisca.",
+  "memory_used": true
+}
+14. ERROR HANDLING
+
+Jika local LLM belum aktif, jangan membuat aplikasi crash.
+
+Tampilkan:
+
+Local AI model belum tersedia. Pastikan runtime model lokal sudah berjalan.
+
+Jika database gagal:
+
+Database tidak dapat diakses.
+
+Jika pertanyaan kosong:
+
+Silakan masukkan pertanyaan.
+
+15. README
+
+Buat README lengkap yang menjelaskan:
+
+requirement
+instalasi Python
+virtual environment
+install dependencies
+instalasi Ollama
+cara menjalankan local model
+cara menjalankan FastAPI
+cara membuka web
+format dataset
+cara menambah dataset manual
+cara menggunakan memory
+struktur project
+troubleshooting
+
+Berikan command Windows yang jelas.
+
+16. TESTING
+
+Buat minimal test untuk:
+
+database connection
+save memory
+retrieve memory
+delete memory
+chat endpoint
+dataset validator
+
+Jangan membuat fake AI response untuk endpoint production. Untuk unit test, mock LLM service bila diperlukan.
+
+17. DESAIN UI
+
+Buat UI modern tetapi sederhana.
+
+Gunakan:
+
+dark mode sebagai default
+card ringan
+sidebar untuk history/memory
+chat bubble
+responsive
+mobile-friendly
+tidak terlalu banyak animasi
+
+Layout:
+
+┌───────────────────────────────────────────┐
+│ PISCA                              ☰      │
+├──────────────┬────────────────────────────┤
+│             │                            │
+│ Chat History │          CHAT AREA         │
+│             │                            │
+│ Memory      │                            │
+│             │                            │
+│ Settings    │                            │
+│             │                            │
+├──────────────┴────────────────────────────┤
+│  Tulis pesan...                     [➤]   │
+└───────────────────────────────────────────┘
+18. PENTING
+
+Jangan melakukan hal-hal berikut:
+
+jangan menggunakan API cloud
+jangan membuat fitur marketplace
+jangan membuat sistem login kompleks
+jangan membuat role/admin terlebih dahulu
+jangan menggunakan framework frontend berat
+jangan membuat fitur AI berlebihan
+jangan membuat database kompleks
+jangan membuat training otomatis setiap kali user chat
+jangan menghapus abstraction untuk LLM karena nantinya akan digunakan untuk Android
+
+Fokus pada MVP yang benar-benar berjalan.
+
+19. OUTPUT YANG SAYA INGINKAN
+
+Setelah selesai, project harus bisa dijalankan dengan alur:
+
+Start Local LLM
+       ↓
+Start FastAPI
+       ↓
+Open Browser
+       ↓
+PISCA Web
+       ↓
+Chat
+       ↓
+AI generates response
+       ↓
+Memory can be saved
+       ↓
+Memory can be recalled
+
+Pastikan semua file dibuat lengkap dan saling terhubung.
+
+Sebelum selesai:
+
+periksa import,
+periksa path,
+periksa database,
+periksa API,
+periksa frontend-backend connection,
+periksa dataset 100 data,
+jalankan test,
+berikan instruksi menjalankan project dari awal.
+
+Jangan hanya memberikan contoh kode. Buat project yang benar-benar runnable.
