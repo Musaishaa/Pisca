@@ -1,0 +1,100 @@
+{"category":"Sistem Informasi","instruction":"Apa itu sistem informasi?","response":"Sistem informasi adalah kombinasi manusia, proses, data, dan teknologi untuk menghasilkan informasi."}
+{"category":"Sistem Informasi","instruction":"Apa tujuan sistem informasi?","response":"Tujuannya mendukung operasi, pengambilan keputusan, dan pengelolaan organisasi."}
+{"category":"Sistem Informasi","instruction":"Apa perbedaan data dan informasi?","response":"Data adalah fakta mentah, sedangkan informasi adalah data yang telah diolah sehingga bermakna."}
+{"category":"Sistem Informasi","instruction":"Siapa analis sistem?","response":"Analis sistem mempelajari kebutuhan pengguna lalu merancang solusi sistem."}
+{"category":"Sistem Informasi","instruction":"Apa itu SDLC?","response":"SDLC adalah tahapan terstruktur untuk merencanakan, membangun, menguji, dan memelihara perangkat lunak."}
+{"category":"Sistem Informasi","instruction":"Apa itu kebutuhan fungsional?","response":"Kebutuhan fungsional menjelaskan layanan atau perilaku yang harus disediakan sistem."}
+{"category":"Sistem Informasi","instruction":"Apa itu kebutuhan nonfungsional?","response":"Kebutuhan nonfungsional menjelaskan kualitas sistem, seperti keamanan, kinerja, dan kemudahan pakai."}
+{"category":"Sistem Informasi","instruction":"Apa itu stakeholder?","response":"Stakeholder adalah pihak yang berkepentingan atau terdampak oleh sebuah sistem."}
+{"category":"Sistem Informasi","instruction":"Apa itu diagram alir?","response":"Diagram alir atau flowchart menggambarkan urutan proses menggunakan simbol."}
+{"category":"Sistem Informasi","instruction":"Mengapa dokumentasi sistem penting?","response":"Dokumentasi memudahkan pemeliharaan, pelatihan, audit, dan pengembangan sistem berikutnya."}
+{"category":"Database","instruction":"Apa itu database?","response":"Database adalah kumpulan data terstruktur yang disimpan agar mudah dikelola dan diakses."}
+{"category":"Database","instruction":"Apa itu DBMS?","response":"DBMS adalah perangkat lunak untuk membuat, menyimpan, mengubah, dan mengambil data database."}
+{"category":"Database","instruction":"Apa itu tabel?","response":"Tabel adalah struktur database yang menyimpan data dalam baris dan kolom."}
+{"category":"Database","instruction":"Apa itu primary key?","response":"Primary key adalah kolom bernilai unik yang mengidentifikasi setiap baris tabel."}
+{"category":"Database","instruction":"Apa itu foreign key?","response":"Foreign key adalah kolom yang menghubungkan data suatu tabel dengan tabel lain."}
+{"category":"Database","instruction":"Apa itu normalisasi database?","response":"Normalisasi adalah pengaturan struktur tabel untuk mengurangi duplikasi dan anomali data."}
+{"category":"Database","instruction":"Apa itu relasi one to many?","response":"Relasi one to many berarti satu data pada tabel pertama dapat terkait dengan banyak data pada tabel kedua."}
+{"category":"Database","instruction":"Apa manfaat indeks database?","response":"Indeks mempercepat pencarian data, walaupun dapat menambah biaya saat menulis data."}
+{"category":"Database","instruction":"Apa itu transaksi database?","response":"Transaksi adalah satu rangkaian operasi yang diperlakukan sebagai satu unit kerja."}
+{"category":"Database","instruction":"Apa arti ACID?","response":"ACID adalah atomicity, consistency, isolation, dan durability untuk transaksi yang andal."}
+{"category":"PHP","instruction":"Apa itu PHP?","response":"PHP adalah bahasa pemrograman yang umum digunakan untuk pengembangan web sisi server."}
+{"category":"PHP","instruction":"Bagaimana menampilkan teks pada PHP?","response":"Gunakan echo, misalnya echo 'Halo';."}
+{"category":"PHP","instruction":"Apa kegunaan variabel PHP?","response":"Variabel menyimpan nilai dan diawali tanda dolar, misalnya $nama."}
+{"category":"PHP","instruction":"Apa itu array dalam PHP?","response":"Array adalah struktur yang menyimpan banyak nilai dalam satu variabel."}
+{"category":"PHP","instruction":"Apa itu function PHP?","response":"Function adalah blok kode yang dapat dipanggil kembali untuk tugas tertentu."}
+{"category":"PHP","instruction":"Apa itu include di PHP?","response":"include memasukkan isi file lain ke dalam skrip PHP."}
+{"category":"PHP","instruction":"Apa perbedaan GET dan POST di PHP?","response":"GET mengirim data melalui URL, sedangkan POST mengirim data dalam isi permintaan HTTP."}
+{"category":"PHP","instruction":"Bagaimana koneksi PHP ke database?","response":"PHP dapat memakai PDO atau MySQLi dengan kredensial database yang aman."}
+{"category":"PHP","instruction":"Apa itu session PHP?","response":"Session menyimpan data pengguna di server selama interaksi web berlangsung."}
+{"category":"PHP","instruction":"Mengapa validasi input PHP penting?","response":"Validasi input membantu mencegah data tidak valid dan risiko keamanan."}
+{"category":"MySQL","instruction":"Apa itu MySQL?","response":"MySQL adalah sistem manajemen database relasional yang memakai SQL."}
+{"category":"MySQL","instruction":"Bagaimana membuat database MySQL?","response":"Gunakan perintah CREATE DATABASE nama_database;."}
+{"category":"MySQL","instruction":"Bagaimana membuat tabel MySQL?","response":"Gunakan CREATE TABLE diikuti nama tabel dan definisi kolom."}
+{"category":"MySQL","instruction":"Apa fungsi SELECT?","response":"SELECT digunakan untuk membaca data dari tabel."}
+{"category":"MySQL","instruction":"Apa fungsi INSERT?","response":"INSERT digunakan untuk menambahkan baris data baru."}
+{"category":"MySQL","instruction":"Apa fungsi UPDATE?","response":"UPDATE digunakan untuk mengubah data yang sudah ada."}
+{"category":"MySQL","instruction":"Apa fungsi DELETE?","response":"DELETE digunakan untuk menghapus baris data dari tabel."}
+{"category":"MySQL","instruction":"Apa kegunaan WHERE?","response":"WHERE menyaring baris berdasarkan kondisi tertentu."}
+{"category":"MySQL","instruction":"Apa itu JOIN?","response":"JOIN menggabungkan data terkait dari dua atau lebih tabel."}
+{"category":"MySQL","instruction":"Bagaimana mencegah SQL injection?","response":"Gunakan parameterized query dan jangan menyusun query dari input mentah."}
+{"category":"HTML","instruction":"Apa itu HTML?","response":"HTML adalah bahasa markup untuk menyusun struktur halaman web."}
+{"category":"HTML","instruction":"Apa fungsi tag head?","response":"Tag head memuat metadata, judul, dan referensi sumber halaman."}
+{"category":"HTML","instruction":"Apa fungsi tag body?","response":"Tag body berisi konten yang ditampilkan pada halaman web."}
+{"category":"HTML","instruction":"Apa itu semantic HTML?","response":"Semantic HTML memakai elemen bermakna seperti header, main, article, dan footer."}
+{"category":"HTML","instruction":"Apa fungsi tag form?","response":"Tag form mengelompokkan input yang akan dikirim pengguna."}
+{"category":"HTML","instruction":"Apa fungsi atribut alt?","response":"Atribut alt memberi teks alternatif untuk gambar dan membantu aksesibilitas."}
+{"category":"HTML","instruction":"Apa itu hyperlink?","response":"Hyperlink adalah tautan ke lokasi lain yang biasanya dibuat dengan elemen a."}
+{"category":"HTML","instruction":"Apa fungsi label pada input?","response":"Label menjelaskan input dan membuat formulir lebih mudah diakses."}
+{"category":"HTML","instruction":"Apa itu viewport meta tag?","response":"Viewport meta tag membantu halaman tampil proporsional pada perangkat mobile."}
+{"category":"HTML","instruction":"Mengapa HTML perlu valid?","response":"HTML valid meningkatkan kompatibilitas, aksesibilitas, dan kemudahan pemeliharaan."}
+{"category":"CSS","instruction":"Apa itu CSS?","response":"CSS adalah bahasa untuk mengatur tampilan dan tata letak halaman web."}
+{"category":"CSS","instruction":"Apa itu selector CSS?","response":"Selector memilih elemen HTML yang akan diberi gaya."}
+{"category":"CSS","instruction":"Apa itu box model?","response":"Box model terdiri dari content, padding, border, dan margin."}
+{"category":"CSS","instruction":"Apa perbedaan margin dan padding?","response":"Margin adalah ruang di luar border, sedangkan padding adalah ruang di dalam border."}
+{"category":"CSS","instruction":"Apa itu flexbox?","response":"Flexbox adalah sistem layout satu dimensi untuk menyusun elemen secara fleksibel."}
+{"category":"CSS","instruction":"Apa itu CSS Grid?","response":"CSS Grid adalah sistem layout dua dimensi untuk baris dan kolom."}
+{"category":"CSS","instruction":"Apa itu media query?","response":"Media query menerapkan gaya berdasarkan kondisi seperti lebar layar."}
+{"category":"CSS","instruction":"Apa fungsi position relative?","response":"position relative mempertahankan posisi normal sambil memungkinkan pergeseran relatif."}
+{"category":"CSS","instruction":"Apa fungsi z-index?","response":"z-index mengatur urutan tumpukan elemen yang diposisikan."}
+{"category":"CSS","instruction":"Bagaimana membuat warna variabel CSS?","response":"Gunakan custom property seperti --warna: blue; lalu var(--warna)."}
+{"category":"JavaScript","instruction":"Apa itu JavaScript?","response":"JavaScript adalah bahasa pemrograman yang membuat halaman web menjadi interaktif."}
+{"category":"JavaScript","instruction":"Apa perbedaan let dan const?","response":"let dapat diubah nilainya, sedangkan const tidak dapat diikat ulang."}
+{"category":"JavaScript","instruction":"Apa itu function JavaScript?","response":"Function adalah blok instruksi yang dapat dipanggil untuk menjalankan tugas."}
+{"category":"JavaScript","instruction":"Apa itu DOM?","response":"DOM adalah representasi dokumen HTML yang dapat diakses dan diubah JavaScript."}
+{"category":"JavaScript","instruction":"Apa fungsi addEventListener?","response":"addEventListener mendaftarkan fungsi untuk merespons suatu kejadian."}
+{"category":"JavaScript","instruction":"Apa itu array JavaScript?","response":"Array adalah daftar nilai yang tersusun dalam satu objek."}
+{"category":"JavaScript","instruction":"Apa itu object JavaScript?","response":"Object menyimpan pasangan properti dan nilai."}
+{"category":"JavaScript","instruction":"Apa itu async await?","response":"async dan await mempermudah penulisan kode asinkron berbasis Promise."}
+{"category":"JavaScript","instruction":"Apa fungsi fetch?","response":"fetch digunakan untuk membuat permintaan jaringan seperti memanggil API."}
+{"category":"JavaScript","instruction":"Apa itu JSON?","response":"JSON adalah format teks ringan untuk pertukaran data terstruktur."}
+{"category":"API","instruction":"Apa itu API?","response":"API adalah antarmuka yang memungkinkan aplikasi saling berkomunikasi."}
+{"category":"API","instruction":"Apa itu REST API?","response":"REST API adalah gaya API yang memakai resource dan metode HTTP."}
+{"category":"API","instruction":"Apa arti endpoint?","response":"Endpoint adalah alamat URL spesifik yang menyediakan fungsi API."}
+{"category":"API","instruction":"Apa metode GET?","response":"GET digunakan untuk mengambil data tanpa mengubah resource."}
+{"category":"API","instruction":"Apa metode POST?","response":"POST digunakan untuk membuat data atau memicu proses baru."}
+{"category":"API","instruction":"Apa metode PUT?","response":"PUT digunakan untuk memperbarui resource secara lengkap."}
+{"category":"API","instruction":"Apa arti status 200?","response":"Status HTTP 200 berarti permintaan berhasil diproses."}
+{"category":"API","instruction":"Apa arti status 404?","response":"Status HTTP 404 berarti resource yang diminta tidak ditemukan."}
+{"category":"API","instruction":"Apa itu API key?","response":"API key adalah kredensial untuk mengidentifikasi dan membatasi akses aplikasi."}
+{"category":"API","instruction":"Mengapa API perlu validasi?","response":"Validasi memastikan data masuk sesuai aturan dan membantu menjaga keamanan."}
+{"category":"Jaringan Komputer","instruction":"Apa itu jaringan komputer?","response":"Jaringan komputer adalah perangkat yang terhubung untuk bertukar data dan sumber daya."}
+{"category":"Jaringan Komputer","instruction":"Apa itu alamat IP?","response":"Alamat IP adalah identitas numerik perangkat pada jaringan."}
+{"category":"Jaringan Komputer","instruction":"Apa itu router?","response":"Router meneruskan paket data antarjaringan."}
+{"category":"Jaringan Komputer","instruction":"Apa itu switch?","response":"Switch menghubungkan perangkat dalam jaringan lokal dan meneruskan data ke tujuan."}
+{"category":"Jaringan Komputer","instruction":"Apa itu DNS?","response":"DNS menerjemahkan nama domain menjadi alamat IP."}
+{"category":"Jaringan Komputer","instruction":"Apa itu DHCP?","response":"DHCP membagikan konfigurasi IP secara otomatis kepada perangkat."}
+{"category":"Jaringan Komputer","instruction":"Apa perbedaan LAN dan WAN?","response":"LAN mencakup area kecil, sedangkan WAN mencakup area geografis yang lebih luas."}
+{"category":"Jaringan Komputer","instruction":"Apa itu bandwidth?","response":"Bandwidth adalah kapasitas maksimum transfer data dalam jaringan."}
+{"category":"Jaringan Komputer","instruction":"Apa itu latency?","response":"Latency adalah waktu tunda perjalanan data dari sumber ke tujuan."}
+{"category":"Jaringan Komputer","instruction":"Apa fungsi firewall jaringan?","response":"Firewall menyaring lalu lintas jaringan berdasarkan aturan keamanan."}
+{"category":"Cybersecurity","instruction":"Apa itu cybersecurity?","response":"Cybersecurity adalah praktik melindungi sistem, jaringan, dan data dari ancaman digital."}
+{"category":"Cybersecurity","instruction":"Apa itu phishing?","response":"Phishing adalah upaya menipu korban agar memberikan informasi sensitif."}
+{"category":"Cybersecurity","instruction":"Apa itu malware?","response":"Malware adalah perangkat lunak berbahaya yang dirancang untuk merusak atau menyalahgunakan sistem."}
+{"category":"Cybersecurity","instruction":"Mengapa password kuat penting?","response":"Password kuat membuat akun lebih sulit ditebak atau dibobol."}
+{"category":"Cybersecurity","instruction":"Apa itu autentikasi dua faktor?","response":"Autentikasi dua faktor meminta bukti tambahan selain password."}
+{"category":"Cybersecurity","instruction":"Apa itu enkripsi?","response":"Enkripsi mengubah data agar hanya pihak berwenang yang dapat membacanya."}
+{"category":"Cybersecurity","instruction":"Apa itu ransomware?","response":"Ransomware adalah malware yang menyandera data dan meminta tebusan."}
+{"category":"Cybersecurity","instruction":"Apa itu vulnerability?","response":"Vulnerability adalah kelemahan yang dapat dieksploitasi penyerang."}
+{"category":"Cybersecurity","instruction":"Mengapa pembaruan perangkat lunak penting?","response":"Pembaruan sering memperbaiki celah keamanan dan bug."}
+{"category":"Cybersecurity","instruction":"Apa langkah aman saat memakai WiFi publik?","response":"Hindari transaksi sensitif, gunakan HTTPS, dan pertimbangkan VPN tepercaya."}
